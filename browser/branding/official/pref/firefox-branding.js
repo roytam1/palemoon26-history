@@ -28,25 +28,27 @@ pref("accessibility.force_disabled", 1);
 
 // ****************** Release notes and vendor URLs ******************
 
-pref("app.releaseNotesURL", "http://www.palemoon.org/releasenotes-ng.shtml");
+pref("app.releaseNotesURL", "http://www.palemoon.org/releasenotes.shtml");
 pref("app.vendorURL", "http://www.palemoon.org/");
 pref("app.support.baseURL", "http://www.palemoon.org/support/");
 pref("browser.mixedcontent.warning.infoURL", "http://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/mixed-content/");
 //Add-on window fixes
 pref("extensions.getAddons.browseAddons", "https://addons.mozilla.org/%LOCALE%/firefox");
 pref("extensions.getAddons.maxResults", 10);
-pref("extensions.getAddons.recommended.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/recommended");
-pref("extensions.getAddons.recommended.url", "https://services.addons.mozilla.org/%LOCALE%/firefox/api/%API_VERSION%/list/featured/all/10/%OS%/%VERSION%");
-pref("extensions.getAddons.search.browseURL", "https://addons.mozilla.org/%LOCALE%/firefox/search?q=%TERMS%");
-pref("extensions.getAddons.search.url", "https://services.addons.mozilla.org/%LOCALE%/firefox/api/%API_VERSION%/search/%TERMS%/all/10/%OS%/%VERSION%");
-pref("extensions.getMoreThemesURL", "https://addons.mozilla.org/%LOCALE%/firefox/getpersonas");
+pref("extensions.getAddons.recommended.browseURL", "https://addons.palemoon.org/integration/addon-manager/external/recommended");
+pref("extensions.getAddons.recommended.url", "https://addons.palemoon.org/integration/addon-manager/internal/recommended?locale=%LOCALE%&os=%OS%");
+pref("extensions.getAddons.search.browseURL", "https://addons.palemoon.org/integration/addon-manager/external/search?q=%TERMS%");
+pref("extensions.getAddons.search.url", "https://addons.palemoon.org/integration/addon-manager/internal/search?q=%TERMS%&locale=%LOCALE%&os=%OS%&version=%VERSION%");
+pref("extensions.getMoreThemesURL", "https://addons.palemoon.org/integration/addon-manager/external/themes");
 pref("extensions.blocklist.url", "https://addons.mozilla.org/blocklist/3/firefox/%APP_VERSION%/%PRODUCT%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/");
 pref("extensions.blocklist.itemURL", "https://addons.mozilla.org/%LOCALE%/firefox/blocked/%blockID%");
-pref("extensions.webservice.discoverURL","https://services.addons.mozilla.org/%LOCALE%/firefox/discovery/pane/%VERSION%/%OS%");
-pref("extensions.getAddons.get.url","https://services.addons.mozilla.org/%LOCALE%/firefox/api/%API_VERSION%/search/guid:%IDS%?src=firefox&appOS=%OS%&appVersion=%VERSION%&tMain=%TIME_MAIN%&tFirstPaint=%TIME_FIRST_PAINT%&tSessionRestored=%TIME_SESSION_RESTORED%");
+pref("extensions.webservice.discoverURL","http://addons.palemoon.org/integration/addon-manager/internal/discover/");
+pref("extensions.getAddons.cache.enabled", false);
+pref("extensions.getAddons.get.url","https://addons.palemoon.org/integration/addon-manager/internal/get?addonguid=%IDS%&os=%OS%&version=%VERSION%");
+pref("extensions.getAddons.getWithPerformance.url","https://addons.palemoon.org/integration/addon-manager/internal/get?addonguid=%IDS%&os=%OS%&version=%VERSION%");
 //Add-on updates: hard-code base Firefox version number.
-pref("extensions.update.background.url","https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=24.0&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
-pref("extensions.update.url","https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=24.0&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
+pref("extensions.update.background.url","https://addons.palemoon.org/integration/addon-manager/internal/update?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
+pref("extensions.update.url","https://addons.palemoon.org/integration/addon-manager/internal/update?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
 //Search engine fixes
 pref("browser.search.searchEnginesURL", "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
 //Dictionary URL
@@ -63,15 +65,23 @@ pref("browser.search.param.yahoo-fr-ja", "mozff");
 
 // ****************** domain-specific UAs ******************
 
-pref("general.useragent.override.live.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.outlook.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.web.de","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.aol.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.privat24.ua","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0");
-pref("general.useragent.override.addons.mozilla.org","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.9) Gecko/20100101 Firefox/24.9 PaleMoon/24.9");
+// Required for domains that have proven unresponsive to requests from users
+pref("general.useragent.override.live.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
+pref("general.useragent.override.outlook.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
+pref("general.useragent.override.web.de","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
+pref("general.useragent.override.aol.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
+
+// UA-Sniffing domains below are pending responses from their operators - temp workaround
+pref("general.useragent.override.netflix.com","Mozilla/5.0 (Windows NT; x86; rv:25.1) Gecko/20100101 Firefox/24.9 PaleMoon/25.1.0");
+pref("general.useragent.override.facebook.com","Opera/9.80 (Pale Moon)");
+
+// UA-Sniffing domains below have indicated no interest in supporting Pale Moon (BOO!)
+pref("general.useragent.override.humblebundle.com","Mozilla/5.0 (Windows NT; x86; rv:33.0) Gecko/20100101 Firefox/33.0 (Pale Moon)");
+pref("general.useragent.override.privat24.ua","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0");
+pref("general.useragent.override.icloud.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
 
 // Enable Firefox compatibility mode globally?
-pref("general.useragent.compatMode.firefox", false);
+pref("general.useragent.compatMode.firefox", true);
 
 // ****************** Extensions/plugins ******************
 
@@ -153,14 +163,6 @@ pref("dom.ipc.plugins.timeoutSecs", 20);
 
 //Automatically update extensions by default
 pref("extensions.update.autoUpdateDefault", true);
-
-//cache handling 1GB -> 250MB by default, disable automatic
-//max element size -> 4MB, caching anything larger is not recommended
-pref("browser.cache.disk.smart_size.enabled",false);
-pref("browser.cache.disk.capacity",256000); //250MB
-pref("browser.cache.disk.max_entry_size",4096);
-pref("browser.cache.memory.capacity",-1); //dynamically allocate RAM cache as-needed.
-pref("browser.cache.memory.max_entry_size",-1); 
 
 //Improve memory handling for js
 pref("javascript.options.mem.gc_per_compartment", true);
