@@ -1,13 +1,13 @@
 // ****************** App/Update/General ******************
 
-pref("startup.homepage_override_url","http://www.palemoon.org/");
+pref("startup.homepage_override_url","http://www.palemoon.org/releasenotes.shtml");
 pref("startup.homepage_welcome_url","http://www.palemoon.org/firstrun.shtml");
 // Interval: Time between checks for a new version (in seconds) -- 2 days for Pale Moon
 pref("app.update.interval", 172800);
 pref("app.update.auto", false);
 pref("app.update.enabled", true);
 // URL for update checks, re-enabled on palemoon.org (369)
-pref("app.update.url", "http://www.palemoon.org/update/%VERSION%/Atom/update.xml");
+pref("app.update.url", "https://www.palemoon.org/update/%VERSION%/%BUILD_TARGET%/update.xml");
 pref("app.update.promptWaitTime", 86400); 
 // The time interval between the downloading of mar file chunks in the
 // background (in seconds)
@@ -19,7 +19,7 @@ pref("app.update.promptWaitTime", 172800);
 pref("app.update.url.manual", "http://www.palemoon.org/");
 // A default value for the "More information about this update" link
 // supplied in the "An update is available" page of the update wizard. 
-pref("app.update.url.details", "http://www.palemoon.org/releasenotes-ng.shtml");
+pref("app.update.url.details", "http://www.palemoon.org/releasenotes.shtml");
 // Additional Update fixes - no SSL damnit, I don't have a cert (4.0)
 pref("app.update.cert.checkAttributes", false);
 pref("app.update.cert.requireBuiltIn", false);
@@ -58,59 +58,38 @@ pref("browser.geolocation.warning.infoURL", "http://www.mozilla.com/%LOCALE%/fir
 //add-on/plugin blocklist -> Palemoon.org
 pref("extensions.blocklist.url","http://blocklist.palemoon.org/%VERSION%/blocklist.xml");
 
-pref("browser.search.param.ms-pc", "MOZI");
-pref("browser.search.param.yahoo-fr", "moz35");
-pref("browser.search.param.yahoo-fr-cjkt", "moz35"); // now unused
-pref("browser.search.param.yahoo-fr-ja", "mozff");
-
 // ****************** domain-specific UAs ******************
 
 // Required for domains that have proven unresponsive to requests from users
-pref("general.useragent.override.live.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.outlook.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.web.de","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
-pref("general.useragent.override.aol.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
+pref("general.useragent.override.live.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0 (Pale Moon)");
+pref("general.useragent.override.outlook.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0 (Pale Moon)");
+pref("general.useragent.override.web.de","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0 (Pale Moon)");
+pref("general.useragent.override.aol.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0 (Pale Moon)");
 
 // UA-Sniffing domains below are pending responses from their operators - temp workaround
-pref("general.useragent.override.netflix.com","Mozilla/5.0 (Windows NT; x86; rv:25.1) Gecko/20100101 Firefox/24.9 PaleMoon/25.1.0");
+pref("general.useragent.override.netflix.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.5) Gecko/20100101 Firefox/24.9 PaleMoon/25.5.0");
 pref("general.useragent.override.facebook.com","Opera/9.80 (Pale Moon)");
 
 // UA-Sniffing domains below have indicated no interest in supporting Pale Moon (BOO!)
-pref("general.useragent.override.humblebundle.com","Mozilla/5.0 (Windows NT; x86; rv:33.0) Gecko/20100101 Firefox/33.0 (Pale Moon)");
-pref("general.useragent.override.privat24.ua","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0");
-pref("general.useragent.override.icloud.com","Mozilla/5.0 (Windows NT; x86; rv:28.0) Gecko/20100101 Firefox/28.0 (Pale Moon)");
+pref("general.useragent.override.humblebundle.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0 (Pale Moon)");
+pref("general.useragent.override.privat24.ua","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0");
+pref("general.useragent.override.icloud.com","Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0 (Pale Moon)");
 
 // Enable Firefox compatibility mode globally?
 pref("general.useragent.compatMode.firefox", true);
 
 // ****************** Extensions/plugins ******************
 
-pref("plugins.click_to_play"  , true); //Enable tri-state option (Always/Never/Ask)
 pref("plugin.default.state", 2); //Allow plugins to run by default
 pref("plugin.expose_full_path", true); //Security: expose the full path to the plugin
 
 // ****************** Networking config ******************
 
-pref("network.prefetch-next", false); //prefetching engine off by default!
-pref("network.http.pipelining"      , true); //pipelining on by default, haven't seen any issues
-pref("network.http.pipelining.ssl"  , true); 
-pref("network.http.proxy.pipelining", false); // pipeline proxy requests - breaks some proxies! (406)
-pref("network.http.pipelining.aggressive", true);
-pref("network.http.pipelining.max-optimistic-requests", 4);
-pref("network.http.pipelining.maxrequests", 4);  // Max number of requests in the pipeline
-pref("network.http.max-connections",48); // Don't saturate the network layer and go easy on poor residential routers&wireless! (FF=256)
-pref("network.http.max-connections-per-server",10); // With pipelining, this should be low (FF=15)
-pref("network.http.pipelining.read-timeout", 5000); //More aggressive fallback to non-pipelined
-pref("network.http.pipelining.reschedule-timeout", 1000);
-pref("network.http.max-persistent-connections-per-proxy", 8);
-pref("network.http.max-persistent-connections-per-server", 6);
-pref("network.dns.disablePrefetch", true); //Disable DNS prefetching to prevent router hangups
-pref("network.dnsCacheEntries", 1024); //cache 1024 instead of 20
-pref("network.dnsCacheExpiration", 3600); //TTL 1 hour
+pref("network.dnsCacheEntries", 128); //cache up to this many entries in-browser
+pref("network.dnsCacheExpiration", 300); //TTL 5 minutes
 
 // ****************** Renderer config ******************
 
-pref("nglayout.initialpaint.delay", 150);
 pref("gfx.color_management.mode",2); //Use CMS for images with ICC profile.
 pref("gfx.color_management.enablev4", true); //Use "new" handler to prevent display issues for v4 ICC embedded profiles!
 
@@ -131,25 +110,6 @@ pref("social.enabled", false);
 
 //Set tabs NOT on top
 pref("browser.tabs.onTop",false); 
-
-//Smooth scrolling settings
-pref("general.smoothScroll",true);
-pref("general.smoothScroll.lines",true);
-pref("general.smoothScroll.lines.durationMinMS",50);
-pref("general.smoothScroll.lines.durationMaxMS",200);
-pref("general.smoothScroll.pages",false);
-pref("general.smoothScroll.pages.durationMinMS",200);
-pref("general.smoothScroll.pages.durationMaxMS",600);
-pref("general.smoothScroll.mouseWheel",true);
-pref("general.smoothScroll.mouseWheel.durationMinMS",150);
-pref("general.smoothScroll.mouseWheel.durationMaxMS",500);
-pref("general.smoothScroll.scrollbars",true);
-pref("general.smoothScroll.scrollbars.durationMinMS",50);
-pref("general.smoothScroll.scrollbars.durationMaxMS",200);
-pref("general.smoothScroll.other",false);
-pref("general.smoothScroll.other.durationMinMS",200);
-pref("general.smoothScroll.other.durationMaxMS",600);
-
 
 // ****************** Misc. config ******************
 
@@ -181,7 +141,6 @@ pref("dom.max_chrome_script_run_time", 90); //Some addons need ample time!
 pref("dom.max_script_run_time", 20); //Should be plenty for a page script to do what it needs
 
 //Media components
-pref("media.webaudio.enabled", true);
 
 //Image decoding tweaks
 pref("image.mem.max_ms_before_yield", 50);
