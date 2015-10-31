@@ -20,51 +20,46 @@ endif
 
 LOCAL_INCLUDES += \
   -I. \
-  -I$(topsrcdir)/media/libvpx \
-  -I$(topsrcdir)/media/libvpx/vp8/ \
-  -I$(topsrcdir)/media/libvpx/vp8/common/ \
-  -I$(topsrcdir)/media/libvpx/vp8/common/arm \
-  -I$(topsrcdir)/media/libvpx/vp8/common/x86 \
-  -I$(topsrcdir)/media/libvpx/vp8/decoder \
-  -I$(topsrcdir)/media/libvpx/vp8/decoder/arm \
-  -I$(topsrcdir)/media/libvpx/vp8/decoder/x86 \
-  -I$(topsrcdir)/media/libvpx/vp9/ \
-  -I$(topsrcdir)/media/libvpx/vp9/common/ \
-  -I$(topsrcdir)/media/libvpx/vp9/common/arm \
-  -I$(topsrcdir)/media/libvpx/vp9/common/x86 \
-  -I$(topsrcdir)/media/libvpx/vp9/decoder/ \
-  -I$(topsrcdir)/media/libvpx/vpx_codec \
-  -I$(topsrcdir)/media/libvpx/vpx_mem/ \
-  -I$(topsrcdir)/media/libvpx/vpx_mem/include \
-  -I$(topsrcdir)/media/libvpx/vpx_ports/ \
-  -I$(topsrcdir)/media/libvpx/vpx_scale/ \
-  -I$(topsrcdir)/media/libvpx/vp8/encoder \
-  -I$(topsrcdir)/media/libvpx/vp8/encoder/arm \
-  -I$(topsrcdir)/media/libvpx/vp8/encoder/arm/armv5te \
-  -I$(topsrcdir)/media/libvpx/vp8/encoder/arm/neon \
-  -I$(topsrcdir)/media/libvpx/vp8/encoder/arm/armv6 \
-  -I$(topsrcdir)/media/libvpx/vpx_scale/arm \
-  -I$(topsrcdir)/media/libvpx/vpx_scale/arm/neon \
-  -I$(topsrcdir)/media/libvpx/vp8/encoder/x86 \
-  -I$(topsrcdir)/media/libvpx/vp9/encoder \
-  -I$(topsrcdir)/media/libvpx/vp9/encoder/x86 \
-  -I$(topsrcdir)/media/libvpx/third_party/x86inc \
-  -I$(topsrcdir)/media/libvpx/vpx_dsp \
-  -I$(topsrcdir)/media/libvpx/vpx_dsp/x86 \
-  -I$(topsrcdir)/media/libvpx/vpx_dsp/arm \
+  -I$(topsrcdir)/build/make \
+  -I$(topsrcdir)/third_party/x86inc \
+  -I$(topsrcdir)/vp8 \
+  -I$(topsrcdir)/vp8/common \
+  -I$(topsrcdir)/vp8/common/arm \
+  -I$(topsrcdir)/vp8/common/arm/armv6 \
+  -I$(topsrcdir)/vp8/common/arm/neon \
+  -I$(topsrcdir)/vp8/common/generic \
+  -I$(topsrcdir)/vp8/common/x86 \
+  -I$(topsrcdir)/vp8/decoder \
+  -I$(topsrcdir)/vp8/encoder \
+  -I$(topsrcdir)/vp8/encoder/arm \
+  -I$(topsrcdir)/vp8/encoder/arm/armv6 \
+  -I$(topsrcdir)/vp8/encoder/arm/neon \
+  -I$(topsrcdir)/vp8/encoder/x86 \
+  -I$(topsrcdir)/vp9 \
+  -I$(topsrcdir)/vp9/common \
+  -I$(topsrcdir)/vp9/common/arm \
+  -I$(topsrcdir)/vp9/common/arm/neon \
+  -I$(topsrcdir)/vp9/common/x86 \
+  -I$(topsrcdir)/vp9/decoder \
+  -I$(topsrcdir)/vp9/encoder \
+  -I$(topsrcdir)/vp9/encoder/arm \
+  -I$(topsrcdir)/vp9/encoder/arm/neon \
+  -I$(topsrcdir)/vp9/encoder/x86 \
+  -I$(topsrcdir)/vpx \
+  -I$(topsrcdir)/vpx/src \
+  -I$(topsrcdir)/vpx_dsp \
+  -I$(topsrcdir)/vpx_dsp/arm \
+  -I$(topsrcdir)/vpx_dsp/x86 \
+  -I$(topsrcdir)/vpx_mem \
+  -I$(topsrcdir)/vpx_mem/include \
+  -I$(topsrcdir)/vpx_ports \
+  -I$(topsrcdir)/vpx_scale \
+  -I$(topsrcdir)/vpx_scale/generic \
   $(NULL)
 
 VPATH += \
   $(srcdir)/build/make \
-  $(srcdir)/vpx \
-  $(srcdir)/vpx/src \
-  $(srcdir)/vpx_mem \
-  $(srcdir)/vpx_mem/include \
-  $(srcdir)/vpx_ports \
-  $(srcdir)/vpx_scale \
-  $(srcdir)/vpx_scale/arm \
-  $(srcdir)/vpx_scale/arm/neon \
-  $(srcdir)/vpx_scale/generic \
+  $(srcdir)/third_party/x86inc \
   $(srcdir)/vp8 \
   $(srcdir)/vp8/common \
   $(srcdir)/vp8/common/arm \
@@ -73,33 +68,31 @@ VPATH += \
   $(srcdir)/vp8/common/generic \
   $(srcdir)/vp8/common/x86 \
   $(srcdir)/vp8/decoder \
-  $(srcdir)/vp8/decoder/arm \
-  $(srcdir)/vp8/decoder/arm/armv6 \
-  $(srcdir)/vp8/decoder/arm/neon \
-  $(srcdir)/vp8/decoder/generic \
-  $(srcdir)/vp8/decoder/x86 \
+  $(srcdir)/vp8/encoder \
+  $(srcdir)/vp8/encoder/arm \
+  $(srcdir)/vp8/encoder/arm/armv6 \
+  $(srcdir)/vp8/encoder/arm/neon \
+  $(srcdir)/vp8/encoder/x86 \
   $(srcdir)/vp9 \
   $(srcdir)/vp9/common \
   $(srcdir)/vp9/common/arm \
   $(srcdir)/vp9/common/arm/neon \
-  $(srcdir)/vp9/common/generic \
   $(srcdir)/vp9/common/x86 \
   $(srcdir)/vp9/decoder \
-  $(srcdir)/vp8/encoder \
-  $(srcdir)/vp8/encoder/arm \
-  $(srcdir)/vp8/encoder/arm/armv5te \
-  $(srcdir)/vp8/encoder/arm/armv6 \
-  $(srcdir)/vp8/encoder/arm/neon \
-  $(srcdir)/vp8/encoder/generic \
-  $(srcdir)/vp8/encoder/x86 \
   $(srcdir)/vp9/encoder \
+  $(srcdir)/vp9/encoder/arm \
+  $(srcdir)/vp9/encoder/arm/neon \
   $(srcdir)/vp9/encoder/x86 \
-  $(srcdir)/vpx_scale/arm \
-  $(srcdir)/vpx_scale/arm/neon \
-  $(srcdir)/third_party/x86inc \
+  $(srcdir)/vpx \
+  $(srcdir)/vpx/src \
   $(srcdir)/vpx_dsp \
-  $(srcdir)/vpx_dsp/x86 \
   $(srcdir)/vpx_dsp/arm \
+  $(srcdir)/vpx_dsp/x86 \
+  $(srcdir)/vpx_mem \
+  $(srcdir)/vpx_mem/include \
+  $(srcdir)/vpx_ports \
+  $(srcdir)/vpx_scale \
+  $(srcdir)/vpx_scale/generic \
   $(NULL)
 
 #Setup the libvpx assembler config.
@@ -440,6 +433,7 @@ CSRCS += \
   subtract_neon.c \
   vp8_shortwalsh4x4_neon.c \
   vp9_convolve_neon.c \
+  vp9_idct16x16_neon.c \
   vp9_iht4x4_add_neon.c \
   vp9_iht8x8_add_neon.c \
   vp9_loopfilter_neon.c \
@@ -481,7 +475,6 @@ VPX_ASFILES = \
   vp9_copy_neon_asm.asm \
   vp9_idct16x16_1_add_neon_asm.asm \
   vp9_idct16x16_add_neon_asm.asm \
-  vp9_idct16x16_neon.c
   vp9_idct32x32_1_add_neon_asm.asm \
   vp9_idct32x32_add_neon_asm.asm \
   vp9_idct4x4_1_add_neon_asm.asm \
@@ -535,6 +528,43 @@ vp9_dct_ssse3.$(OBJ_SUFFIX): CFLAGS += -mssse3
 vp9_quantize_sse2.$(OBJ_SUFFIX): CFLAGS += -msse2 
 vp9_variance_sse2.$(OBJ_SUFFIX): CFLAGS += -msse2 
 variance_sse2.$(OBJ_SUFFIX): CFLAGS += -msse2 
+endif
+ifeq ($(OS_TARGET),Android)
+bilinearpredict_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+copymem_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+dc_only_idct_add_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+dequant_idct_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+dequantizeb_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+idct_blk_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+idct_dequant_0_2x_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+idct_dequant_full_2x_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+iwalsh_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+loopfilter_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+loopfiltersimplehorizontaledge_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+loopfiltersimpleverticaledge_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+mbloopfilter_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+reconintra_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+shortidct4x4llm_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+sixtappredict_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp8_subpixelvariance_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+denoising_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+fastquantizeb_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+shortfdct_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+subtract_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp8_shortwalsh4x4_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_convolve_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_iht4x4_add_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_iht8x8_add_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_loopfilter_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_reconintra_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_dct_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_quantize_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_subtract_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9_variance_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+vp9enc_avg_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+sad4d_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+sad_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
+variance_neon.$(OBJ_SUFFIX): CFLAGS += -mfloat-abi=softfp -mfpu=neon
 endif
 endif
 
